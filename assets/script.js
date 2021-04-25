@@ -18,22 +18,16 @@ $(document).ready(function() {
    $('#currentDay').text(new Date().toDateString());
 
    let currentTime = new Date().getHours();
-   console.log(currentTime);
-   
-   for (let i = 9; i <=17; i++) {
-      let timeId = $('.saveBtn').attr(`#${i}`);
-      console.log(timeId);
-      
-      if (currentTime < timeId) {
-         $('.description').addClass('past');
-      } else if (currentTime = timeId) {
-         $('.description').addClass('present');
+
+   $('.saveBtn').each(function() {
+      if (parseInt($(this).attr('id')) < currentTime) {
+         $(this).siblings('.description').addClass('past');
+      } else if (parseInt($(this).attr('id')) === currentTime) {
+         $(this).siblings('.description').addClass('present');
       } else {
-         $('.description').addClass('future');
+         $(this).siblings('.description').addClass('future');
       }
-   }
-
-
-
+   });
 
 });
+
