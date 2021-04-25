@@ -21,6 +21,10 @@ textarea{
   border-bottom: 10px solid black;
 }
 
+.container {
+  padding-bottom: 30px;
+}
+
 .description{
   white-space: pre-wrap;
 }
@@ -44,7 +48,7 @@ textarea{
 }
 
 .past {
-  background-color: #f0ccdb;
+  background-color: #c3e3df;
   color: white;
 }
 
@@ -54,7 +58,7 @@ textarea{
 }
 
 .future {
-  background-color: #47edc4;
+  background-color: #f0ccdb;
   color: white;
 }
 
