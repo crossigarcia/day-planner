@@ -9,8 +9,6 @@ $(document).ready(function() {
 
    });
 
-   //grab from localStorage and populate the text area with correct time/text
-
    for (let i = 9; i <= 17; i++) {
       $(`#${i}`).siblings('.description').val(localStorage.getItem(`${i}`));
    }
@@ -19,15 +17,21 @@ $(document).ready(function() {
 
    let currentTime = new Date().getHours();
 
-   $('.saveBtn').each(function() {
-      if (parseInt($(this).attr('id')) < currentTime) {
-         $(this).siblings('.description').addClass('past');
-      } else if (parseInt($(this).attr('id')) === currentTime) {
-         $(this).siblings('.description').addClass('present');
-      } else {
-         $(this).siblings('.description').addClass('future');
-      }
-   });
+   let colorCode = function() {
+      $('.saveBtn').each(function() {
+         if (parseInt($(this).attr('id')) < currentTime) {
+            $(this).siblings('.description').addClass('past');
+         } else if (parseInt($(this).attr('id')) === currentTime) {
+            $(this).siblings('.description').addClass('present');
+         } else {
+            $(this).siblings('.description').addClass('future');
+         }
+      });
+   }
+
+   colorCode();
+
+   setInterval(function() {colorCode}, (1000 * 60) * 30);
 
 });
 
