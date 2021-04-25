@@ -31,7 +31,7 @@ $(document).ready(function() {
 
    colorCode();
 
-   setInterval(function() {colorCode}, (1000 * 60) * 30);
+   setInterval(colorCode, 5000);
 
 });
 
